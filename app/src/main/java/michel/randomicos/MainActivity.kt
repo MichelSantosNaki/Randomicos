@@ -10,8 +10,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener { // deixa a clas
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if(supportActionBar != null){
+            supportActionBar!!.hide() // faz a verificação e esconde a action bar apenas nessa active
+        }
+
         buttonRandom.setOnClickListener(this) // herda da própria classe o onclick! há outras maneiras mas essa é a mais correta!
         textNumber.setOnClickListener(this)
+
+
 
 
     }
@@ -19,7 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener { // deixa a clas
     override fun onClick(v: View?) {
 
         if(v?.id== R.id.buttonRandom || v?.id == R.id.textNumber){
-            val id = random()
+            textNumber.text = random().toString()
         }
 
     }
